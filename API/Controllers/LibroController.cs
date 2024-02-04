@@ -21,11 +21,6 @@ namespace API.Controllers
         [HttpGet]
         public String RetrieveAllBooks() {
 
-         /* Dictionary<int, string> libros = new Dictionary<int, string> {
-            { 1, "Orgullo y Prejuicio"},
-            { 2, "Cartas de amor a los muertos"},
-            { 3, "Harry Potter y el Prisionero de Azkaban"} 
-          };*/
 
             // Extraer solo los nombres de los libros
             var nombresLibros = libros.Values.ToList();
