@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using AppLogic;
 
 namespace API.Controllers
 {
@@ -9,15 +12,27 @@ namespace API.Controllers
     public class PatientsController : ControllerBase
     {
         [HttpGet]
-        public string GetPatient(int id) 
+        public Patient GetPatient(string socialSecId) 
         {
-            return "Datos del GET";
+            PatientManager pm = new PatientManager();
+            return pm.GetPatient(socialSecId);
         }
 
         [HttpGet]
-        public string GetAllPatient()
+        public List<Patient> GetAllPatient()
         {
-            return "Datos del GetAllPatients";
+            /*List<Patient> patients = new List<Patient>();
+            Patient p = new Patient();
+
+            /*List<Appointment> app = new List<Appointment>(); /*Esta es otra opcion de iniciar la lista 1/2*/
+
+            /*p.Appointments = app; /*Esta es otra opcion de iniciar la lista 2/2*/
+
+           /* patients.Add(p); /*Lineas anteriores se comentarion porque ahora se usa PatientManager*/
+
+            PatientManager pm = new PatientManager();
+
+            return pm.GetAllPatients();
         }
 
     }
